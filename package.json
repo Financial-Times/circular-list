@@ -1,0 +1,17 @@
+{
+  "name": "circular-list",
+  "version": "0.1.0",
+  "description": "Create a circularly-linked list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://10.119.160.180/wilsonpage/circular-list"
+  },
+  "author": "Matt CG",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "3e2b463a7b03c8db1a3712051c8bfb586dfa62f4"
+}
