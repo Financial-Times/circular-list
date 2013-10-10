@@ -23,7 +23,10 @@ exports.CircularList = CircularList;
 /**
  * @constructor
  */
-function CircularList() {
+function CircularList(maxLength) {
+
+
+  this.maxLength = maxLength;
 
   /**
    * The length of the linked list
@@ -103,6 +106,9 @@ CircularList.prototype.append = function (item) {
 
   item.list = this;
   this.length++;
+  if (this.length > this.maxLength) {
+    this.remove(this.first);
+  }
 };
 
 /**
@@ -139,6 +145,12 @@ CircularList.prototype.remove = function (item) {
   this.length--;
 };
 
+CircularList.prototype.pop = function (item) {
+  var data = this.last.data;
+  this.remove(this.last);
+  return data;
+};
+
 /**
  * Convert the linked
  * list to an Array
@@ -155,6 +167,28 @@ CircularList.prototype.toArray = function () {
 
   for (i = 0; i < length; i++) {
     array[i] = item;
+    item = item.next;
+  }
+
+  return array;
+};
+
+/**
+ * Convert the linked
+ * list to an Array where the CircularList item is just it's data.
+ *
+ * The first item in the list is the first item in the array.
+ *
+ * @return {Array}
+ */
+CircularList.prototype.toDataArray = function () {
+  var i, item, array, length = this.length;
+
+  array = new Array(length);
+  item = this.first;
+
+  for (i = 0; i < length; i++) {
+    array[i] = item.data;
     item = item.next;
   }
 
@@ -180,6 +214,9 @@ CircularList.prototype.insertAfter = function (item, newItem) {
 
   newItem.list = this;
   this.length++;
+  if (this.length > this.maxLength) {
+    this.remove(this.first);
+  }
 };
 
 /**
