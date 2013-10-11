@@ -4,14 +4,26 @@
   "description": "Create a circularly-linked list",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf node_modules && rm -rf coverage && rm -rf platoreport/*",
+    "analyse": "./node_modules/.bin/plato -r -d platoreport -x .json lib",
+    "test": "./node_modules/.bin/grunt build-instrumented && ./node_modules/.bin/buster-test",
+    "ci": "npm run clean; npm install; npm test; npm run analyse"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.9",
+    "grunt-browserify": "~1.2.1",
+    "grunt-istanbul": "~0.2.1",
+    "buster": "~0.6.12",
+    "buster-istanbul": "~0.1.10",
+    "plato": "~0.6.1"
   },
   "repository": {
     "type": "git",
     "url": "http://10.119.160.180/wilsonpage/circular-list"
   },
   "author": "Matt CG",
-  "license": "BSD",
+  "license": "All rights reserved by Financial Times Ltd.",
   "readmeFilename": "README.md",
   "gitHead": "3e2b463a7b03c8db1a3712051c8bfb586dfa62f4"
 }

@@ -8,7 +8,7 @@ config['instrumented_tests'] = {
   rootPath: '../',
   environment: 'browser',
   sources: [
-    'coverage/build/main.js'
+    'coverage/build/index.js'
   ],
   tests: [
     'test/tests/*.js'

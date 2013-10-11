@@ -6,15 +6,15 @@ module.exports = function(grunt) {
 
     browserify: {
       build: {
-        src: 'lib/main.js',
-        dest: 'build/main.js'
+        src: 'lib/index.js',
+        dest: 'build/index.js'
       },
       instrumented: {
-        src: 'coverage/lib/main.js',
-        dest: 'coverage/build/main.js'
+        src: 'coverage/lib/index.js',
+        dest: 'coverage/build/index.js'
       },
       options: {
-        standalone: 'ftLabsStandardJs'
+        standalone: 'CircularList'
       },
     },
 
