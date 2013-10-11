@@ -164,5 +164,68 @@ buster.testCase('CircularList', {
 		refute.defined(list.length);
 		refute.defined(list.first);
 		refute.defined(list.last);
+	},
+	'CircularList#Max length should limit the length of the circular list by removing the first item when an item is appended or inserted.' : function() {
+		'use strict';
+		var list = new CircularList.CircularList(10);
+		var eleven;
+
+		for (var i=0;i<20; i++) {
+			list.append(new CircularList.CircularList.Item(i));
+			if (i === 11) {
+				eleven = list.last;
+			}
+		}
+
+		assert.equals(list.length, 10);
+
+		var data = list.pop();
+		assert.equals(list.length, 9);
+		assert.equals(data, 19);
+
+		assert.equals(JSON.stringify([10,11,12,13,14,15,16,17,18]),JSON.stringify(list.toDataArray()));
+
+		//put 19 back to test that inserting forces the oldest to drop off
+		list.append(new CircularList.CircularList.Item(19));
+
+		list.insertAfter(eleven,new CircularList.CircularList.Item('hello world'));
+		assert.equals(JSON.stringify([11,'hello world',12,13,14,15,16,17,18,19]),JSON.stringify(list.toDataArray()));
+
+		list.pop();
+		assert.equals(list.length, 9);
+
+		list.pop();
+		assert.equals(list.length, 8);
+
+		list.pop();
+		assert.equals(list.length, 7);
+
+		list.pop();
+		assert.equals(list.length, 6);
+
+		list.pop();
+		assert.equals(list.length, 5);
+
+		list.pop();
+		assert.equals(list.length, 4);
+
+		list.pop();
+		assert.equals(list.length, 3);
+
+		list.pop();
+		assert.equals(list.length, 2);
+
+		list.pop();
+		assert.equals(list.length, 1);
+
+		list.pop();
+		assert.equals(list.length, 0);
+
+		data = list.pop();
+		assert.equals(list.length, 0);
+
+		assert.equals(data, null);
+
+		list.destroy();
 	}
 });
