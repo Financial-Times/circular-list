@@ -1,0 +1,12 @@
+- project:
+    name: "" # This variable is not used but has to be here and needs to be unique in this file.
+    projectname: circular-list
+    majorversion: 'v1'
+    sshurl: ssh://git@git.svc.ft.com:7999/labsmisc/circular-list.git
+    description: |
+        The FT Labs Circular-List project.
+        <a http://git.svc.ft.com:8080/projects/LABSMISC/repos/circular-list/browse'>Code on Stash</a>.
+
+    jobs:
+        - js-standard-ci-jobs-configA:
+            emailTo: "ada.edwards@ft.com"
