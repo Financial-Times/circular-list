@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf node_modules && rm -rf coverage && rm -rf platoreport/*",
     "analyse": "./node_modules/.bin/plato -r -d platoreport -x .json lib",
-    "test": "./node_modules/.bin/grunt build-instrumented && ./node_modules/.bin/buster-test",
+    "test": "./node_modules/.bin/grunt build-instrumented && ./node_modules/.bin/buster-test --reporter xml > results.xml",
     "ci": "npm run clean; npm install; npm test; npm run analyse"
   },
   "devDependencies": {
