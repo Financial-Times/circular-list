@@ -5,7 +5,8 @@
     sshurl: ssh://git@git.svc.ft.com:7999/labsmisc/circular-list.git
     description: |
         The FT Labs Circular-List project.
-        <a http://git.svc.ft.com:8080/projects/LABSMISC/repos/circular-list/browse'>Code on Stash</a>.
+        <a href='http://git.svc.ft.com:8080/projects/LABSMISC/repos/circular-list/browse'>Code on Stash</a>.
+    node: "" # Label of node to run job on, empty string for master.
 
     jobs:
         - js-standard-ci-jobs-configA:
