@@ -146,20 +146,23 @@ buster.testCase('CircularList', {
 		list.append(itemC);
 
 		assert.equals(list.length, 3);
+		assert.equals(itemA.circularlist, list);
+		assert.equals(itemA.circularlist, list);
+		assert.equals(itemA.circularlist, list);
 
 		list.destroy();
 
 		refute.defined(itemA.prev);
 		refute.defined(itemA.next);
-		refute.defined(itemA.list);
+		refute.defined(itemA.circularlist);
 
 		refute.defined(itemB.prev);
 		refute.defined(itemB.next);
-		refute.defined(itemB.list);
+		refute.defined(itemB.circularlist);
 
 		refute.defined(itemC.prev);
 		refute.defined(itemC.next);
-		refute.defined(itemC.list);
+		refute.defined(itemC.circularlist);
 
 		refute.defined(list.length);
 		refute.defined(list.first);
